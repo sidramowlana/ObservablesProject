@@ -29,10 +29,18 @@ export class AppComponent implements OnInit, OnDestroy{
         }
       }
     );
+    this.usersService.hello.subscribe((hello:string)=>
+    {
+      console.log(hello);
+    });
     
   }  
   ngOnDestroy()
   {
     this.removethis.unsubscribe();
+  }
+  hello()
+  {
+    this.usersService.hello.next("hello");
   }
 }
